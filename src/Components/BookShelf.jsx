@@ -22,7 +22,6 @@ class BookShelf extends Component {
         })
     }
     whenSelect = (event, book) => {
-        console.log(event.target)
         const shelf = event.target.value;
         BooksAPI.update(book, shelf).then(data => {
             this.getData()
@@ -56,7 +55,7 @@ class BookShelf extends Component {
                                                 </div>
                                             </div>
                                             <div className="book-title">{v.title}</div>
-                                            <div className="book-authors">{v.authors.join(", ")}</div>
+                                            <div className="book-authors">{Array.isArray(v.authors) ? (v.authors.join(", ")) : ("")}</div>
                                         </div>
                                     </li>)) : (<li> No Books Found </li>)}
                                 </ol>
@@ -84,7 +83,7 @@ class BookShelf extends Component {
                                                 </div>
                                             </div>
                                             <div className="book-title">{v.title}</div>
-                                            <div className="book-authors">{v.authors.join(", ")}</div>
+                                            <div className="book-authors">{Array.isArray(v.authors) ? (v.authors.join(", ")) : ("")}</div>
                                         </div>
                                     </li>)) : (<li> No Books Found </li>)}
                                 </ol>
@@ -112,7 +111,7 @@ class BookShelf extends Component {
                                                 </div>
                                             </div>
                                             <div className="book-title">{v.title}</div>
-                                            <div className="book-authors">{v.authors.join(", ")}</div>
+                                            <div className="book-authors">{Array.isArray(v.authors) ? (v.authors.join(", ")) : ("")}</div>
                                         </div>
                                     </li>)) : (<li> No Books Found </li>)}
                                 </ol>
