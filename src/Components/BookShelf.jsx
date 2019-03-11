@@ -14,7 +14,7 @@ class BookShelf extends Component {
     }
     getData = () => {
         BooksAPI.getAll().then(data => {
-            console.log(data)
+            /* console.log(data) */
             const CurrentlyRead = data.filter(v => v.shelf === "currentlyReading")
             const Read = data.filter(v => v.shelf === "read")
             const WantToRead = data.filter(v => v.shelf === "wantToRead")
