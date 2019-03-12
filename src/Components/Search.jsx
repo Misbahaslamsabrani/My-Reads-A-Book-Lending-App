@@ -32,9 +32,12 @@ class Search extends Component {
         })
     }
 
-    whenSelect = (event, book) => {
+    whenSelect = (event, book, index) => {
         const shelf = event.target.value;
         BooksAPI.update(book, shelf)
+        const TemArr = [...this.state.SearchedBooks];
+        TemArr[index].shelf = shelf;
+        this.setState({SearchedBooks: TemArr})
     }
     render() {
         console.log(this.state.SearchedBooks)
@@ -54,13 +57,13 @@ class Search extends Component {
                 <div className="search-books-results">
                     <h2 className="bookshelf-title">Search Results</h2>
                     <ol className="books-grid">
-                        {this.state.SearchedBooks.length > 0 ? (this.state.SearchedBooks.map(v =>
+                        {this.state.SearchedBooks.length > 0 ? (this.state.SearchedBooks.map((v,i) =>
                             <li key={v.id}>
                                 <div className="book">
                                     <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${v.imageLinks ? (v.imageLinks.thumbnail) : ""})` }}></div>
                                         <div className="book-shelf-changer">
-                                            <select onChange={(e) => this.whenSelect(e, v)} value={v.shelf}>
+                                            <select onChange={(e) => this.whenSelect(e, v, i)} value={v.shelf}>
                                                 <option value="move" disabled>Move to...</option>
                                                 <option value="currentlyReading">Currently Reading</option>
                                                 <option value="wantToRead">Want to Read</option>
