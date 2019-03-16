@@ -41,18 +41,14 @@ class BooksApp extends Component {
       this.setState({ CurrentlyRead, Read, WantToRead })
     })
   }
-    /* whenSelect = (event, book) => {
+
+  whenSelect = (event, book) => {
     let shelf = event.target.value;
     update(book, shelf).then(data => {
-      switch(shelf){
-        case "read":
-        const temArr = [...this.state.Read];
-        temArr.push(book)
-        const index = this.state.WantToRead.findIndex(v => v.id === book.id)
-        index && 
-      }
+      this.getData();
     })
-  }  */
+  }
+
   render() {
     const { CurrentlyRead, WantToRead, Read } = this.state;
     return (
@@ -62,8 +58,8 @@ class BooksApp extends Component {
             <Route exact path="/" render={() => <BookShelf
               CurrentlyRead={[...CurrentlyRead]}
               WantToRead={[...WantToRead]}
-              Read={[...Read]} 
-              whenSelect={this.whenSelect}/>}
+              Read={[...Read]}
+              whenSelect={this.whenSelect} />}
             />
 
             <Route exact path="/Search" render={() => <Search
