@@ -15,9 +15,16 @@ These two commands will install all of the dependencies needed for this project 
 * ## Book Shelves
 On first page , you will see three shelves `Cureently Reading` `Want To Read` `Read`
 
-<img src="" />
+<img src="src/screencapture-localhost-3000-2019-03-21-16_04_41.png" />
+
+### Select on which shelf you want that book.
+
+<img src="src/IMG_20190321_161051.jpg" height="150"/>
+
+### Route to search page 
+At the end of the page, there is a `add` button, when you will click that you will route to `/search` page.
 
 * ## Search 
-Here you can search any book, and can move them in different shelves.
+Here you can search any book, and you can move them in different shelves.
 
-<img src="" />
+<img src="src/screencapture-localhost-3000-Search-2019-03-21-16_09_55%20(1).png" />
